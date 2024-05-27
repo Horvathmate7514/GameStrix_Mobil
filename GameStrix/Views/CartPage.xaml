@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tool="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="GameStrix.Views.CartPage"
+             Title="Kosár">
+    <ContentPage.Behaviors>
+        <tool:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing"/>
+    </ContentPage.Behaviors>
+
+    <StackLayout>
+        <CollectionView x:Name="products_CV"  ItemsSource="{Binding CartProducts}"  VerticalScrollBarVisibility="Always" RemainingItemsThreshold="4">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,3*,0.7*">
+                        <Image MinimumHeightRequest="50" HeightRequest="50" WidthRequest="60" Grid.RowSpan="2">
+                            <Image.Source>
+                                <UriImageSource Uri="{Binding Image}" CachingEnabled="True"/>
+                            </Image.Source>
+                        </Image>
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding ProductName}" Padding="5"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding RetailPrice, StringFormat='Ár: {0:## ###} Ft'}" Padding="5" FontAttributes="Bold"/>
+
+                        <BoxView HeightRequest="1" BackgroundColor="Black" Grid.ColumnSpan="3" Grid.Row="2" VerticalOptions="End" />
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Rendelés" Margin="5,25,5,5"  WidthRequest="180" Command="{Binding GoToShippingCommand}" CornerRadius="10"/>
+            <Button Text="Kosár törlése" WidthRequest="180" Margin="5,25,5,5" Command="{Binding DeleteFromCartCommand}" CornerRadius="10"/>
+        </StackLayout>
+    </StackLayout>
+
+
+</ContentPage>

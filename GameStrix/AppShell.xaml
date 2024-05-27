@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GameStrix.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:GameStrix.Views"
+    xmlns:local="clr-namespace:GameStrix"
+    Shell.FlyoutBehavior="Flyout"
+    Title="GameStrix">
+    
+    <ShellContent Title="Termékek" ContentTemplate="{DataTemplate views:MainPage}"/>
+    <ShellContent Title="Bejelentkezés" ContentTemplate="{DataTemplate views:LoginPage}" />
+    <ShellContent Title="Regisztráció" ContentTemplate="{DataTemplate views:RegisterPage}"/>
+    <ShellContent Title="Kosár" ContentTemplate="{DataTemplate views:CartPage}"/>
+    
+</Shell>

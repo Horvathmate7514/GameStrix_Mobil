@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GameStrix.Views.ShippingDataPage"
+             Title="Szállítási adatok">
+    <StackLayout Padding="10">
+        <Entry x:Name="VezNev_ENT" Text="{Binding Vezeteknev}" Margin="10" Placeholder="*Vezetéknév"/>
+        <Entry x:Name="KerNev_ENT" Text="{Binding Keresztnev}" Margin="10" Placeholder="*Keresztnév"/>
+        <Entry x:Name="TelSzam_ENT" Keyboard="Numeric" Text="{Binding Telefonszam}" Margin="10" Placeholder="*Telefonszám"  MaxLength="11"/>
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="SzallCim_ENT" Text="{Binding CityName}" Margin="10" Placeholder="*Város bemérése" />
+            <Button Text="Város bemérése" Margin="10" WidthRequest="150" CornerRadius="10" Command="{Binding GetCurrentLocationCommand}"/>
+        </StackLayout>
+        <Entry Text="" Margin="10" Placeholder="*Utca/házszám"/>
+        <StackLayout Orientation="Horizontal">
+            <CheckBox/>
+            <Label Text="A számlázási cím megegyezik a szállításival" Margin="0,10,0,0"/>
+        </StackLayout>
+        <Entry Text="" Margin="10" Placeholder="Amennyiben eltérő"/>
+        <StackLayout Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding Check}"/>
+            <Label Text="Elfogadom az általános szerződési feltételeket" Margin="0,10,0,0"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="10">
+            <Label Text="A"/>
+            <Label Text=' *' TextColor="Red"/>
+            <Label Text="-al jelölt mezők kitöltése kötelező!"/>
+        </StackLayout>
+        <Button Text="Rendelés leadása" Margin="5,25,5,5" Command="{Binding SendOrderCommand}" CornerRadius="10"/>
+       
+    </StackLayout>
+</ContentPage>

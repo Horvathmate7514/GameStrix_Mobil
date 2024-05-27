@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GameStrix.Views.RegisterPage"
+             Title="Regisztráció">
+    <Grid RowDefinitions="*,*,*,*,*,*,*">
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="StackLayout">
+                <Setter Property="WidthRequest" Value="200"/>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
+        <Image Source="logo.png" Grid.Row="0"/>
+        <StackLayout Orientation="Vertical" Grid.Row="1" VerticalOptions="End">
+            <Label Text="Teljes név:"/>
+            <Entry x:Name="fullName_ENT" Text="{Binding FullName}"/>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Grid.Row="2" VerticalOptions="Center">
+            <Label Text="E-mail:"/>
+            <Entry x:Name="email_ENT" Text="{Binding Email}"/>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Grid.Row="3" VerticalOptions="Center">
+            <Label Text="Jelszó:"/>
+            <Entry x:Name="userPw_ENT" IsPassword="True" Text="{Binding Password}"/>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Grid.Row="4" VerticalOptions="Center">
+            <Label Text="Lakcím:"/>
+            <Entry x:Name="address_ENT" Text="{Binding Address}"/>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Grid.Row="5" VerticalOptions="Center">
+            <Label Text="Telefonszám:"/>
+            <Entry x:Name="phone_ENT" Text="{Binding PhoneNumber}"/>
+        </StackLayout>
+        <Button Text="Regisztráció" Grid.Row="6" WidthRequest="200" HeightRequest="50" VerticalOptions="Start" Command="{Binding RegisterCommand}"/>
+    </Grid>
+</ContentPage>
